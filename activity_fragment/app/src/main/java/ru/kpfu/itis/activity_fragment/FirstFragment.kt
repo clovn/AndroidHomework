@@ -1,7 +1,6 @@
 package ru.kpfu.itis.activity_fragment
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.View
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -16,16 +15,25 @@ class FirstFragment : Fragment(R.layout.fragment_first) {
         super.onViewCreated(view, savedInstanceState)
 
         binding.apply {
+
             val mainActivity = activity as MainActivity
 
-            buttonToSecondScreen.setOnClickListener{
+            buttonToSecondScreen.setOnClickListener {
                 mainActivity.openFragment(SecondFragment.newInstance(textInput.editText?.text.toString()))
             }
 
-            buttonToThirdScreen.setOnClickListener{
+            buttonToThirdScreen.setOnClickListener {
                 val text = textInput.editText?.text.toString()
                 mainActivity.openFragment(SecondFragment.newInstance(text))
                 mainActivity.openFragment(ThirdFragment.newInstance(text))
+            }
+
+            bottomSheetBtn.setOnClickListener {
+                BottomSheetFragment().show(parentFragmentManager, "bottomSheet")
+            }
+
+            parentFragmentManager.setFragmentResultListener("result_text", viewLifecycleOwner) { _, bundle ->
+                inputEt.setText(bundle.getString("TEXT"))
             }
         }
     }
