@@ -13,8 +13,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        openFragment(FirstFragment(), false)
-
+        if(savedInstanceState == null){
+            openFragment(FirstFragment(), false)
+        }
     }
 
     fun openFragment(fragment: Fragment, addToBackStack : Boolean = true) {
