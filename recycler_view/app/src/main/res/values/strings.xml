@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">recycler_view</string>
+    <string name="write_count">Write count</string>
+    <string name="add_to_random_positions">Add to random positions</string>
+    <string name="remove_at_random_positions">Remove at random positions</string>
+    <string name="remove_at_random_position">Remove at random position</string>
+    <string name="add_to_random_position">Add to random position</string>
 </resources>

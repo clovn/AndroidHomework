@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.recycler_view"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.recycler_view"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    viewBinding{
+        enable = true
+    }
 }
 
 dependencies {
@@ -40,7 +43,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.glide)
+    implementation (libs.viewbindingpropertydelegate.full)
+    implementation(libs.androidx.activity)
 }
