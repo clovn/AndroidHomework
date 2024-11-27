@@ -51,8 +51,16 @@ class MainActivity : AppCompatActivity() {
                 if (testVp.currentItem < (testVp.adapter?.itemCount?.minus(1) ?: 0)) {
                     testVp.currentItem += 1
                 } else {
-                    Snackbar.make(testVp, "Результаты сохранены", Snackbar.LENGTH_SHORT)
-                        .show()
+                    if(DataRepository.questions.filter { it.selectedAnswer > 0 }.isNotEmpty()){
+                        Snackbar.make(testVp,
+                            getString(R.string.results_save), Snackbar.LENGTH_SHORT)
+                            .show()
+                    } else {
+                        Snackbar.make(testVp,
+                            getString(R.string.not_all_answers), Snackbar.LENGTH_SHORT)
+                            .show()
+                    }
+
                 }
             }
 

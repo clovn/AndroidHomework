@@ -13,6 +13,14 @@ class TextImageViewHolderGrid(
     private val onLongClick : (Int) -> Unit,
 ) : RecyclerView.ViewHolder(binding.root) {
 
+
+    init {
+        binding.root.setOnLongClickListener {
+            onLongClick(adapterPosition)
+            false
+        }
+    }
+
     fun bindItem(itemData: TextImageHolderData){
         binding.apply {
 
@@ -24,11 +32,6 @@ class TextImageViewHolderGrid(
 
             root.setOnClickListener {
                 onClick(itemData.id)
-            }
-
-            root.setOnLongClickListener {
-                onLongClick(adapterPosition)
-                false
             }
         }
     }
