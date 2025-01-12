@@ -4,6 +4,7 @@ import android.Manifest
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -22,6 +23,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.bumptech.glide.Glide
 import com.example.themes_notifications.databinding.FragmentThemeNotificationBinding
 import com.example.themes_notifications.model.NotificationData
+import com.example.themes_notifications.model.Theme
 import com.example.themes_notifications.themeRecycler.ThemeAdapter
 import com.example.themes_notifications.utils.NotificationHandler
 import com.example.themes_notifications.utils.PermissionsHandler
@@ -140,9 +142,13 @@ class ThemeNotificationFragment : Fragment(R.layout.fragment_theme_notification)
     }
 
     private fun initRecycler(){
+        val themes = Constants.themes.map {
+            it.copy(color = resources.getColor(it.color))
+        }
+
         binding.apply {
             themesRv.adapter = ThemeAdapter(
-                Constants.themes
+                themes
             ) { id ->
                 val intent = Intent(requireContext(), MainActivity::class.java)
                 intent.putExtra(Constants.EXTRA_THEME, id)

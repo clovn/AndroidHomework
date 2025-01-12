@@ -16,15 +16,15 @@ object Constants {
     val themes = listOf(
         Theme(
             id = 1,
-            color = Color.parseColor("#FF3B3B"),
+            color = R.color.red_color,
         ),
         Theme(
             id = 2,
-            color = Color.parseColor("#32FF7E"),
+            color = R.color.yellow_color,
         ),
         Theme(
             id = 3,
-            color = Color.parseColor("#FFEB3B"),
+            color = R.color.green_color,
         )
     )
 
