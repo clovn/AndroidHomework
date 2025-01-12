@@ -20,11 +20,11 @@ object Constants {
         ),
         Theme(
             id = 2,
-            color = R.color.yellow_color,
+            color = R.color.green_color,
         ),
         Theme(
             id = 3,
-            color = R.color.green_color,
+            color = R.color.yellow_color,
         )
     )
 
