@@ -82,18 +82,20 @@ class ThemeNotificationFragment : Fragment(R.layout.fragment_theme_notification)
 
                     return@setOnClickListener
                 }
-                if(ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED ){
+
+                val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Manifest.permission.READ_MEDIA_IMAGES
+                } else {
+                    Manifest.permission.READ_EXTERNAL_STORAGE
+                }
+
+                if(ContextCompat.checkSelfPermission(requireContext(), permission) == PackageManager.PERMISSION_GRANTED ){
                     openGallery()
                     isImageUpload = true
                     closeIcon.visibility = View.VISIBLE
                 }
-                else {
-                    val permission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                        Manifest.permission.READ_MEDIA_IMAGES
-                    } else {
-                        Manifest.permission.READ_EXTERNAL_STORAGE
-                    }
-
+                else{
+                    Log.d("TEST", permission)
                     permissionsHandler?.requestStoragePermission(permission)
                 }
             }

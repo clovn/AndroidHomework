@@ -11,7 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.themes_notifications.utils.NotificationHandler
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,6 +35,8 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
             3 -> setTheme(R.style.Theme_Themes_notifications_Yellow)
             else -> setTheme(R.style.Theme_Themes_notifications)
         }
+
+        setContentView(R.layout.activity_main)
 
         supportFragmentManager.beginTransaction()
             .add(R.id.container, ThemeNotificationFragment())
