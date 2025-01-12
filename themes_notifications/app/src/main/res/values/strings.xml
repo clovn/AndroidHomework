@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">themes_notifications</string>
+    <string name="input_text">Введите текст</string>
+    <string name="notification_title">Заголовок уведомления</string>
+    <string name="notification_text">Текст уведомления</string>
+    <string name="show_notification">Показать уведомление</string>
+    <string name="reset_color">Сбросить цвет</string>
+</resources>
