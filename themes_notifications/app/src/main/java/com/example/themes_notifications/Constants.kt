@@ -7,10 +7,10 @@ import com.example.themes_notifications.model.Theme
 
 object Constants {
     val notificationsChannels = listOf(
-        NotificationChannelData("low_channel_id", "LOW", NotificationManager.IMPORTANCE_LOW),
-        NotificationChannelData("default_channel_id", "DEFAULT", NotificationManager.IMPORTANCE_DEFAULT),
-        NotificationChannelData("high_channel_id", "HIGH", NotificationManager.IMPORTANCE_HIGH),
-        NotificationChannelData("max_channel_id", "MAX", NotificationManager.IMPORTANCE_MAX),
+        NotificationChannelData("low_channel_id", "Low", NotificationManager.IMPORTANCE_MIN),
+        NotificationChannelData("default_channel_id", "Medium", NotificationManager.IMPORTANCE_LOW),
+        NotificationChannelData("high_channel_id", "High", NotificationManager.IMPORTANCE_DEFAULT),
+        NotificationChannelData("max_channel_id", "Urgent", NotificationManager.IMPORTANCE_HIGH),
     )
 
     val themes = listOf(
