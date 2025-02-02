@@ -3,6 +3,7 @@ package ru.kpfu.itis.coroutines.ui
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -15,6 +16,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun RadioGroup(
@@ -47,7 +50,11 @@ fun DropdownSelector(
     var expanded by remember { mutableStateOf(false)}
 
     Column {
-        Text(text = title)
+        Text(
+            text = title,
+            modifier = Modifier
+                .padding(bottom = 8.dp)
+        )
         Box {
             Button(onClick = { expanded = true }) {
                 Text(selectedOption.toString())

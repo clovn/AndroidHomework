@@ -1,6 +1,7 @@
 package ru.kpfu.itis.coroutines
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -14,12 +15,9 @@ import ru.kpfu.itis.coroutines.ui.MainScreen
 
 class MainActivity : ComponentActivity() {
 
-    private var notificationPermissionDeniedCount = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Запрос разрешения на уведомления для Android 13+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             requestNotificationPermission()
         }
@@ -33,19 +31,28 @@ class MainActivity : ComponentActivity() {
     private fun requestNotificationPermission() {
         val permissionLauncher = registerForActivityResult(
             ActivityResultContracts.RequestPermission()
-        ) { isGranted,  ->
+        ) { isGranted ->
             if (!isGranted && !shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) {
-                showPermissionRationaleDialog()
+                showAlertDialog()
             }
         }
 
         permissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
     }
 
-    private fun showPermissionRationaleDialog() {
-        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
-            data = Uri.fromParts("package", packageName, null)
-        }
-        startActivity(intent)
+    private fun showAlertDialog() {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.require_permission))
+            .setMessage(getString(R.string.require_permission_description))
+            .setPositiveButton(getString(R.string.to_settings)) { dialog, _ ->
+                val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).apply {
+                    data = Uri.fromParts("package", packageName, null)
+                }
+                startActivity(intent)
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.decline)) { dialog, _ ->
+                dialog.dismiss()
+            }.create().show()
     }
 }
