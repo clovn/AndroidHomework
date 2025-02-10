@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Room</string>
+    <string name="email_username">Email / Username</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="register">Регистрация</string>
+    <string name="username">Имя пользователя</string>
+    <string name="email">Email</string>
+    <string name="fill_all_fields">Заполните все поля</string>
+    <string name="user_is_exist">Такой пользователь уже существует</string>
+    <string name="user_is_not_exist">такого пользователя не существует</string>
+    <string name="films">Фильмы</string>
+    <string name="movie_title">Movie Title</string>
+    <string name="director">Director</string>
+    <string name="year_of_release">Year of Release</string>
+    <string name="description">Description</string>
+    <string name="rating_0_10">Rating (0–10)</string>
+    <string name="save_movie">Save Movie</string>
+    <string name="director_">Режиссёр:</string>
+    <string name="year">Год:</string>
+    <string name="rating">Оценка:</string>
+    <string name="message_html"><![CDATA["\n                                        <h3>🎬 Фильм: %1$s</h3>\n                                        <p><b>Режиссёр:</b> %2$s</p>\n                                        <p><b>Описание:</b> %3$s</p>\n                                        <p><b>Год:</b> %4$s</p>\n                                        <p><b>Рейтинг:</b> %5$s</p>\n                                    "]]></string>
+    <string name="recommendation">Рекомендация фильма</string>
+</resources>
