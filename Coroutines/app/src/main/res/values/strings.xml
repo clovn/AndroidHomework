@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Coroutines</string>
+    <string name="cancel">Отменить</string>
+    <string name="coroutines_not_started">Корутины не запущены</string>
+    <string name="cancel_coroutines">Отменено %1$d корутин</string>
+    <string name="launch">Запустить</string>
+    <string name="threads_pull">Пул потоков</string>
+    <string name="behavior">Поведение при сворачивании</string>
+    <string name="launch_mode">Режим запуска</string>
+    <string name="coroutine_count">Количество корутин</string>
+    <string name="error">Ошибка: %1$s</string>
+    <string name="require_permission">Требуется разрешение</string>
+    <string name="to_settings">Перейти в настройки</string>
+    <string name="require_permission_description">Для корректной работы приложения необходимо предоставить разрешения для отправки уведомлений. Перейдите в настройки, чтобы предоставить их.</string>
+    <string name="decline">Отклонить</string>
+</resources>
